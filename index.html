@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPAM SMS WEB</title>
+    <title>Run Script Form</title>
     <style>
         body {
-            background-color: #121212;
-            color: #ffffff;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -16,62 +15,82 @@
             height: 100vh;
             margin: 0;
         }
-        h2 {
-            color: #ffcc00;
-        }
         form {
-            background-color: #1e1e1e;
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
         }
         input[type="text"], input[type="number"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #333;
+            margin: 10px 0;
+            border: 1px solid #ccc;
             border-radius: 4px;
-            background-color: #333;
-            color: #fff;
         }
         button {
-            background-color: #ffcc00;
-            color: #000;
             padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-weight: bold;
-            width: 100%;
         }
         button:hover {
-            background-color: #e6b800;
+            background-color: #45a049;
         }
-        .image-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .image-container img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
+        #result {
+            margin-top: 20px;
+            display: none;
+            font-size: 1.2em;
+            color: green;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://media4.giphy.com/media/7uDtQm2jKdS0VGLg46/200.webp" alt="">
-    </div>
-    <h2> SPAM SMS VIP FREE ☄️ </h2>
-    <h3> DISCORD : tuan#1052 </h3>
-    <form action="/run_script" method="POST">
+    <h2>Run Script Form</h2>
+    <form id="myForm">
         <label for="sdt">Phone Number:</label>
-        <input type="text" id="sdt" name="sdt" required>
-        <button type="submit">Attack</button>
+        <input type="text" id="sdt" name="sdt" required placeholder="Enter your phone number">
+
+        <label for="other_info">Other Info (Optional):</label>
+        <input type="text" id="other_info" name="other_info" placeholder="Enter other information">
+
+        <button type="button" id="startButton">Start</button>
     </form>
+
+    <div id="result">
+        <p>Script is running with your input!</p>
+    </div>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            // Lấy dữ liệu từ form
+            var phoneNumber = document.getElementById('sdt').value;
+            var otherInfo = document.getElementById('other_info').value;
+
+            // Kiểm tra xem người dùng đã nhập số điện thoại chưa
+            if (phoneNumber === "") {
+                alert("Please enter a phone number!");
+                return;
+            }
+
+            // Ẩn form và hiển thị kết quả
+            document.getElementById('myForm').style.display = "none";
+            document.getElementById('result').style.display = "block";
+
+            // Xử lý dữ liệu người dùng (hoặc gọi API, tùy theo yêu cầu)
+            console.log("Phone Number: " + phoneNumber);
+            console.log("Other Info: " + otherInfo);
+
+            // Giả lập việc "chạy" script, ví dụ: gửi yêu cầu hoặc thực thi gì đó
+            setTimeout(function() {
+                alert("Script executed successfully!");
+                // Có thể thêm các thao tác khác như gửi yêu cầu API hoặc làm gì đó sau khi chạy xong.
+            }, 2000); // Thực thi sau 2 giây (giả lập thời gian chạy script)
+        });
+    </script>
 </body>
 </html>
